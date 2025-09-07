@@ -312,11 +312,20 @@ require("lz.n").load {
   -- Make sure you add lz.n first.
   vim.pack.add({ "https://github.com/nvim-neorocks/lz.n" })
 
+  ---@param spec lz.n.PackPluginData
+  local function wrapped_load(plug)
+    return require("lz.n").load(plug.spec)
+  end
+
+  ---@class PlugSpec : vim.pack.Spec
+  ---@field data? lz.n.PluginLoadSpec
+
   -- You can inject lz.n.PluginSpec fields (without the name) via the
   -- `data` field.
 
-  ---@type lz.n.pack.Spec[]
+  ---@type (string|PlugSpec)[]
   local plugins = {
+    "https://github.com/neovim/nvim-lspconfig",
     {
       src = "https://github.com/nvim-telescope/telescope.nvim",
       data = {
@@ -333,7 +342,7 @@ require("lz.n").load {
 
   --- Add the plugins, replacing the built-in `load` function
   --- with lz.n's implementation.
-  vim.pack.add(plugins, { load = require("lz.n").load })
+  vim.pack.add(plugins, { load = wrapped_load })
   ```
 
   Note: Until [neovim/#35550](https://github.com/neovim/neovim/issues/35550)
