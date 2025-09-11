@@ -22,6 +22,9 @@
 </div>
 <!-- markdownlint-restore -->
 
+<!-- markdownlint-disable MD028 -->
+<!-- no blank lines between two block quotes -->
+
 It is intended to be used
 
 - By users of plugin managers that don't provide a convenient API for lazy-loading
