@@ -124,10 +124,13 @@ function M._normalize(spec, result)
     elseif spec.import then
         ---@cast spec lz.n.SpecImport
         import_spec(spec, result)
-    elseif spec.name then
+    elseif spec.spec and spec.spec.name then
+        -- spec passed in via vim.pack `data` field
+        ---@cast spec lz.n.pack.LoadOpts
+
         ---@type lz.n.PluginSpec
-        local plugin_spec = vim.tbl_deep_extend("force", { spec.name }, spec.data or {})
-        result[spec.name] = parse(plugin_spec)
+        local plugin_spec = vim.tbl_deep_extend("force", { spec.spec.name }, spec.spec.data or {})
+        result[spec.spec.name] = parse(plugin_spec)
     else
         error("unable to normalize plugin spec: " .. vim.inspect(spec))
     end

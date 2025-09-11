@@ -235,6 +235,13 @@ lz.n.pack.Spec : vim.pack.Spec                                  *lz.n.pack.Spec*
         {data}  (lz.n.PluginLoadSpec)
 
 
+lz.n.pack.LoadOpts                                          *lz.n.pack.LoadOpts*
+
+    Fields: ~
+        {spec}  (lz.n.pack.Spec)
+        {path}  (string)
+
+
 lz.n.PackPluginData                                        *lz.n.PackPluginData*
 
     Fields: ~
@@ -262,7 +269,7 @@ lz.n.SpecImport                                                *lz.n.SpecImport*
 lz.n.Spec                                                            *lz.n.Spec*
 
     Type: ~
-        lz.n.PluginSpec|lz.n.SpecImport|lz.n.Spec[]|lz.n.pack.Spec
+        lz.n.PluginSpec|lz.n.SpecImport|lz.n.Spec[]|lz.n.pack.LoadOpts
 
 
 lz.n.Config                                                        *lz.n.Config*

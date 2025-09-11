@@ -80,6 +80,10 @@
 ---@class lz.n.pack.Spec: vim.pack.Spec
 ---@field data lz.n.PluginLoadSpec
 
+---@class lz.n.pack.LoadOpts
+---@field spec lz.n.pack.Spec
+---@field path string
+
 ---@class lz.n.PackPluginData
 ---@field spec lz.n.pack.Spec
 
@@ -94,7 +98,7 @@
 ---@field import string spec module to import
 ---@field enabled? boolean|(fun():boolean)
 
----@alias lz.n.Spec lz.n.PluginSpec | lz.n.SpecImport | lz.n.Spec[] | lz.n.pack.Spec
+---@alias lz.n.Spec lz.n.PluginSpec | lz.n.SpecImport | lz.n.Spec[] | lz.n.pack.LoadOpts
 
 ---@class lz.n.Config
 ---
