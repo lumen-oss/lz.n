@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.12.1](https://github.com/lumen-oss/lz.n/compare/v2.12.0...v2.12.1) (2025-09-13)
+
+
+### Bug Fixes
+
+* experimental support for `vim.pack` ([457c58e](https://github.com/lumen-oss/lz.n/commit/457c58e938be1db85a7d9c20c2caeb996efbbdbf))
+
 ## [2.12.0](https://github.com/nvim-neorocks/lz.n/compare/v2.11.4...v2.12.0) (2025-08-23)
 
 
