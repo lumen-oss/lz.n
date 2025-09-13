@@ -9,27 +9,38 @@ describe("lz.n", function()
     it("list of lz.n.pack.Spec", function()
         local spy_load = spy.on(loader, "_load")
         lz.load({
-            {
+            spec = {
                 name = "neorg",
+                data = {},
+                src = "",
             },
-            {
+        })
+        lz.load({
+            spec = {
                 name = "crates.nvim",
                 data = {
                     ft = { "toml", "rust" },
                 },
+                src = "",
             },
-            {
+        })
+        lz.load({
+            spec = {
                 name = "telescope.nvim",
                 data = {
                     keys = { { "<leader>tt", mode = { "n", "v" } } },
                     cmd = "Telescope",
                 },
+                src = "",
             },
-            {
+        })
+        lz.load({
+            spec = {
                 name = "telescope-manix",
                 data = {
                     keys = { { "<leader>tn", mode = { "n", "v" }, ft = { "nix" } } },
                 },
+                src = "",
             },
         })
         assert.spy(spy_load).called(1)
