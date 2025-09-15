@@ -15,7 +15,7 @@ test_dependencies = {
 }
 
 source = {
-    url = 'git://github.com/nvim-neorocks/' .. package,
+    url = 'git://github.com/lumen-oss/' .. package,
 }
 
 build = {

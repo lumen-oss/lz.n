@@ -1,7 +1,7 @@
 <!-- markdownlint-disable -->
 <br />
 <div align="center">
-  <a href="https://github.com/nvim-neorocks/lz.n">
+  <a href="https://github.com/lumen-oss/lz.n">
     <img src="./lz-n.svg" alt="lz.n">
   </a>
   <p align="center">
@@ -9,11 +9,11 @@
     <a href="./doc/lz.n.txt"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/nvim-neorocks/lz.n/issues/new?assignees=&labels=bug">Report Bug</a>
+    <a href="https://github.com/lumen-oss/lz.n/issues/new?assignees=&labels=bug">Report Bug</a>
     ·
-    <a href="https://github.com/nvim-neorocks/lz.n/issues/new?assignees=&labels=enhancement">Request Feature</a>
+    <a href="https://github.com/lumen-oss/lz.n/issues/new?assignees=&labels=enhancement">Request Feature</a>
     ·
-    <a href="https://github.com/nvim-neorocks/lz.n/discussions/new?category=q-a">Ask Question</a>
+    <a href="https://github.com/lumen-oss/lz.n/discussions/new?category=q-a">Ask Question</a>
   </p>
   <p>
     <strong>
@@ -39,7 +39,7 @@ It is intended to be used
 > It should be a plugin author's responsibility to ensure their plugin doesn't
 > unnecessarily impact startup time, not yours!
 >
-> See [our "DO's and DONT's" guide for plugin developers](https://github.com/nvim-neorocks/nvim-best-practices?tab=readme-ov-file#sleeping_bed-lazy-loading).
+> See [our "DO's and DONT's" guide for plugin developers](https://github.com/lumen-oss/nvim-best-practices?tab=readme-ov-file#sleeping_bed-lazy-loading).
 >
 > Regardless, the current status quo is horrible, and some authors may
 > not have the will or capacity to improve their plugins' startup impact.
@@ -241,8 +241,8 @@ However, if you're looking for a temporary workaround, you can use
 >   the `after` scripts manually.
 >   In the spirit of the UNIX philosophy, `lz.n` does not provide any functions
 >   for sourcing plugin scripts. For sourcing `after/plugin` directories
->   manually, you can use [`rtp.nvim`](https://github.com/nvim-neorocks/rtp.nvim).
->   [Here is an example](https://github.com/nvim-neorocks/lz.n/wiki/lazy%E2%80%90loading-nvim%E2%80%90cmp-and-its-extensions).
+>   manually, you can use [`rtp.nvim`](https://github.com/lumen-oss/rtp.nvim).
+>   [Here is an example](https://github.com/lumen-oss/lz.n/wiki/lazy%E2%80%90loading-nvim%E2%80%90cmp-and-its-extensions).
 >
 > - Why not provide a `dependencies` field for plugins that don't adhere
 >   to best practices?
@@ -313,7 +313,7 @@ require("lz.n").load {
 
   ```lua
   -- Make sure you add lz.n first.
-  vim.pack.add({ "https://github.com/nvim-neorocks/lz.n" })
+  vim.pack.add({ "https://github.com/lumen-oss/lz.n" })
 
   -- You can inject lz.n.PluginSpec fields (without the name) via the
   -- `data` field.
@@ -536,7 +536,7 @@ the [`:h lz.n.handler.state`](./doc/lz.n.txt) module.
 > For some examples, look at
 >
 > - [The built-in handlers](./lua/lz/n/handler)
-> - [The Wiki](https://github.com/nvim-neorocks/lz.n/wiki/Custom-handler-examples)
+> - [The Wiki](https://github.com/lumen-oss/lz.n/wiki/Custom-handler-examples)
 
 ### Lua API
 

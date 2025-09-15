@@ -117,7 +117,7 @@ function M.load(plugins, lookup)
     for _, plugin in iterator(plugins) do
         local loadable = true
         -- NOTE: do not make this loop into vim.iter
-        -- https://github.com/nvim-neorocks/lz.n/pull/21
+        -- https://github.com/lumen-oss/lz.n/pull/21
         if type(plugin) == "string" then
             ---@diagnostic disable-next-line: cast-local-type
             plugin = lookup and lookup(plugin) or plugin

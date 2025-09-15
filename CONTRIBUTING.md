@@ -63,7 +63,7 @@ The easiest way to run tests is with Nix (see below).
 If you do not use Nix, you can also run the test suite using `luarocks test`.
 For more information on how to set up Neovim as a Lua interpreter, see
 
-- The [neorocks tutorial](https://github.com/nvim-neorocks/neorocks#without-neolua).
+- The [neorocks tutorial](https://github.com/lumen-oss/neorocks#without-neolua).
 
 Or
 
