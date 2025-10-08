@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.12.2](https://github.com/lumen-oss/lz.n/compare/v2.12.1...v2.12.2) (2025-10-08)
+
+
+### Bug Fixes
+
+* **ui:** empty plugin list in notifications ([0ba2829](https://github.com/lumen-oss/lz.n/commit/0ba2829692f901f72384a5d3e4162dce5b156fb7))
+
 ## [2.12.1](https://github.com/lumen-oss/lz.n/compare/v2.12.0...v2.12.1) (2025-09-13)
 
 
