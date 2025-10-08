@@ -70,6 +70,7 @@ function state.new()
                 key = DEFAULT_KEY
             end
             local plugins = pending[key] or {}
+            local plugin_keys = vim.tbl_keys(plugins)
             vim
                 .iter(vim.deepcopy(plugins))
                 ---@param plugin lz.n.Plugin
@@ -78,7 +79,7 @@ function state.new()
                         callback(plugin)
                     end
                 end)
-            return vim.tbl_keys(plugins)
+            return plugin_keys
         end,
     }
 end
