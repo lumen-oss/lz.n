@@ -153,8 +153,9 @@ require("lz.n").load(plugins)
 ### Plugin spec
 
 <!-- markdownlint-disable MD013 -->
-| Property         | Type | Description | `lazy.nvim` equivalent |
-|------------------|------|-------------|-----------------------|
+<!-- markdownlint-disable MD060 -->
+| Property | Type | Description | `lazy.nvim` equivalent |
+|----------|------|-------------|------------------------|
 | **[1]** | `string` | The plugin's name (not the module name). This is what is passed to the `load(name)` function. | `name`[^1] |
 | **enabled** | `boolean?` or `fun():boolean` | When `false`, or if the `function` returns false, then this plugin will not be included in the spec. | `enabled` |
 | **beforeAll** | `fun(lz.n.Plugin)?` | Always executed before any plugins are loaded. | `init` |
@@ -517,6 +518,7 @@ require("lz.n").register_handler(handler)
 #### `lz.n.Handler`
 
 <!-- markdownlint-disable MD013 -->
+<!-- markdownlint-disable MD060 -->
 | Property   | Type                                       | Description                                               |
 | ---        | ---                                        | ---                                                       |
 | spec_field | `string`                                   | The `lz.n.PluginSpec` field used to configure the handler |
