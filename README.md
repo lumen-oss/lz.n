@@ -49,6 +49,12 @@ It is intended to be used
 > call to a heavy `setup` function,
 > consider opening an issue on the plugin's issue tracker.
 
+## :pencil: Prerequisites
+
+### Required
+
+- `neovim >= 0.12`
+
 ## :star2: Features
 
 - API for lazy-loading plugins on:
