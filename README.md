@@ -49,12 +49,6 @@ It is intended to be used
 > call to a heavy `setup` function,
 > consider opening an issue on the plugin's issue tracker.
 
-## :pencil: Prerequisites
-
-### Required
-
-- `neovim >= 0.12`
-
 ## :star2: Features
 
 - API for lazy-loading plugins on:
@@ -114,9 +108,13 @@ but reduced down to the very basics required for lazy-loading only.
   - UI.
 - Some configuration options are different.
 
-## :pencil: Requirements
+## :pencil: Prerequisites
 
-- `Neovim >= 0.10.0`
+### Required
+
+- `neovim >= 0.12`[^1].
+
+[^1]: This plugin may work with older versions, but they are not tested.
 
 ## :wrench: Configuration
 
@@ -162,7 +160,7 @@ require("lz.n").load(plugins)
 <!-- markdownlint-disable MD060 -->
 | Property | Type | Description | `lazy.nvim` equivalent |
 |----------|------|-------------|------------------------|
-| **[1]** | `string` | The plugin's name (not the module name). This is what is passed to the `load(name)` function. | `name`[^1] |
+| **[1]** | `string` | The plugin's name (not the module name). This is what is passed to the `load(name)` function. | `name`[^2] |
 | **enabled** | `boolean?` or `fun():boolean` | When `false`, or if the `function` returns false, then this plugin will not be included in the spec. | `enabled` |
 | **beforeAll** | `fun(lz.n.Plugin)?` | Always executed before any plugins are loaded. | `init` |
 | **before** | `fun(lz.n.Plugin)?` | Executed before a plugin is loaded. | None |
@@ -171,16 +169,16 @@ require("lz.n").load(plugins)
 | **cmd** | `string?` or `string[]` | Lazy-load on command. | `cmd` |
 | **ft** | `string?` or `string[]` | Lazy-load on filetype. | `ft` |
 | **keys** | `string?` or `string[]` or `lz.n.KeysSpec[]` | Lazy-load on key mapping. | `keys` |
-| **colorscheme** | `string?` or `string[]` | Lazy-load on colorscheme. | None. `lazy.nvim` lazy-loads colorschemes automatically[^2]. |
+| **colorscheme** | `string?` or `string[]` | Lazy-load on colorscheme. | None. `lazy.nvim` lazy-loads colorschemes automatically[^3]. |
 | **lazy** | `boolean?` | Lazy-load manually, e.g. using `trigger_load`. Will disable lazy-loading if explicitly set to `false`. | `lazy` |
 | **priority** | `number?` | Only useful for **start** plugins (not lazy-loaded) to force loading certain plugins first. Default priority is `50`. | `priority` |
 | **load** | `fun(string)?` | Can be used to override the `vim.g.lz_n.load()` function for an individual plugin. | None. |
 <!-- markdownlint-enable MD013 -->
 
-[^1]: In contrast to `lazy.nvim`'s `name` field, a `lz.n.PluginSpec`'s `name` *is not optional*.
+[^2]: In contrast to `lazy.nvim`'s `name` field, a `lz.n.PluginSpec`'s `name` *is not optional*.
       This is because `lz.n` is not a plugin manager and needs to be told which
       plugins to load.
-[^2]: The reason this library doesn't lazy-load colorschemes automatically is that
+[^3]: The reason this library doesn't lazy-load colorschemes automatically is that
       it would have to know where the plugin is installed in order to determine
       which plugin to load.
 
@@ -188,9 +186,9 @@ require("lz.n").load(plugins)
 
 - `DeferredUIEnter`: Triggered when `load()` is done and after `UIEnter`.
   Can be used as an `event` to lazy-load plugins that are not immediately needed
-  for the initial UI[^3].
+  for the initial UI[^4].
 
-[^3]: This is equivalent to `lazy.nvim`'s `VeryLazy` event.
+[^4]: This is equivalent to `lazy.nvim`'s `VeryLazy` event.
 
 ### `keymap(<plugin>).set`
 
@@ -478,9 +476,9 @@ return {
 ```
 
 - `lz.n` will automatically merge any Lua file in `~/.config/nvim/lua/plugins/*.lua`
-  with the main plugin spec[^4].
+  with the main plugin spec[^5].
 
-[^4]: It *does not* merge multiple specs for the same plugin from different files.
+[^5]: It *does not* merge multiple specs for the same plugin from different files.
 
 Example structure:
 
@@ -575,7 +573,7 @@ The function provides two overloads, each suited for different use cases:
     - *Description:* This version should be used when working with `lz.n.Handler`
       instances to maintain referential transparency.
       Each handler has full authority over its internal state, ensuring it
-      remains isolated and unaffected by external influences[^5],
+      remains isolated and unaffected by external influences[^6],
       thereby preventing multiple sources of truth.
 2. **Stateful version:**
     - *Usage:* `trigger_load(plugin_name: string | string[], opts?: lz.n.lookup.Opts)`
@@ -588,7 +586,7 @@ The function provides two overloads, each suited for different use cases:
       to identify an appropriate plugin, and returns the first match.
       You can fine-tune the search process by providing a [`lz.n.lookup.Opts` table](#lookup).
 
-[^5]: Until the handler is instructed to stop tracking a loaded plugin via its `del` function.
+[^6]: Until the handler is instructed to stop tracking a loaded plugin via its `del` function.
 
 #### `lookup`
 
