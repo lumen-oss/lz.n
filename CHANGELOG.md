@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/lumen-oss/lz.n/compare/v2.12.2...v3.0.0) (2026-05-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop Neovim 0.11 support ([#209](https://github.com/lumen-oss/lz.n/issues/209))
+
+### Features
+
+* drop Neovim 0.11 support ([#209](https://github.com/lumen-oss/lz.n/issues/209)) ([d5c5dcb](https://github.com/lumen-oss/lz.n/commit/d5c5dcba8fcec28ca47895fb8c6bbde1ef451465))
+
 ## [2.12.2](https://github.com/lumen-oss/lz.n/compare/v2.12.1...v2.12.2) (2025-10-08)
 
 
