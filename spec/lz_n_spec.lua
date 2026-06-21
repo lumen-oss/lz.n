@@ -168,7 +168,7 @@ describe("lz.n", function()
                 lazy = false,
             })
         end)
-        it("regression: cmd handler does not delete user commands created in before hook", function()
+        it("cmd handler does not delete user commands created in before hook", function()
             --
             lz.load({
                 {
