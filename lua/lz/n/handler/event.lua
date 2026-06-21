@@ -59,7 +59,7 @@ local M = {
     spec_field = "event",
     ---@param event_spec? lz.n.EventSpec
     parse = function(plugin, event_spec)
-        if event_spec then
+        if event_spec and not vim.islist(plugin.event) then
             plugin.event = {}
         end
         if type(event_spec) == "string" or type(event_spec) == "table" and (event_spec.event or event_spec.pattern) then
