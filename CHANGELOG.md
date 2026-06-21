@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/lumen-oss/lz.n/compare/v3.0.0...v3.0.1) (2026-06-21)
+
+
+### Bug Fixes
+
+* error when both `ft` and `event` are string ([#223](https://github.com/lumen-oss/lz.n/issues/223)) ([9d07411](https://github.com/lumen-oss/lz.n/commit/9d074110bb886ccf86bddc72db9471704c83bbfd))
+
 ## [3.0.0](https://github.com/lumen-oss/lz.n/compare/v2.12.2...v3.0.0) (2026-05-11)
 
 
