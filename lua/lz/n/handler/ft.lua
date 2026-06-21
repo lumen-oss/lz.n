@@ -20,18 +20,17 @@ local M = {
     ---@param ft_spec? string[]|string
     parse = function(plugin, ft_spec)
         if ft_spec then
-            plugin.event = plugin.event or {}
             ---@diagnostic disable-next-line: inject-field
             plugin.ft = nil
         end
         if type(ft_spec) == "string" then
             local ft = parse(ft_spec)
-            table.insert(plugin.event, ft)
+            event.parse(plugin, ft)
         elseif type(ft_spec) == "table" then
             ---@param ft_spec_ string
             vim.iter(ft_spec):each(function(ft_spec_)
                 local ft = parse(ft_spec_)
-                table.insert(plugin.event, ft)
+                event.parse(plugin, ft)
             end)
         end
     end,

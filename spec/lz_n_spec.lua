@@ -169,7 +169,6 @@ describe("lz.n", function()
             })
         end)
         it("cmd handler does not delete user commands created in before hook", function()
-            --
             lz.load({
                 {
                     "foo.nvim",
@@ -182,6 +181,34 @@ describe("lz.n", function()
             })
             vim.cmd.Foo()
             vim.cmd.Bar()
+        end)
+        it("both 'ft' and 'event' defined as string -> ft trigger", function()
+            local spy_load = spy.on(loader, "_load")
+            -- #222
+            lz.load({
+                {
+                    "foo.nvim",
+                    ft = "foo",
+                    event = "InsertEnter",
+                },
+            })
+            assert.spy(spy_load).called(0)
+            vim.api.nvim_exec_autocmds("FileType", { pattern = "foo" })
+            assert.spy(spy_load).called(1)
+        end)
+        it("both 'ft' and 'event' defined as string -> event trigger", function()
+            local spy_load = spy.on(loader, "_load")
+            -- #222
+            lz.load({
+                {
+                    "foo.nvim",
+                    ft = "foo",
+                    event = "InsertEnter",
+                },
+            })
+            assert.spy(spy_load).called(0)
+            vim.api.nvim_exec_autocmds("InsertEnter", {})
+            assert.spy(spy_load).called(1)
         end)
     end)
 end)
