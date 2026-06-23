@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/lumen-oss/lz.n/compare/v3.0.1...v3.0.2) (2026-06-23)
+
+
+### Bug Fixes
+
+* **event:** regression - parsing list of strings ([26bbe7e](https://github.com/lumen-oss/lz.n/commit/26bbe7efcb4b5c9ccbc4d8cc5b038fa493422336))
+
 ## [3.0.1](https://github.com/lumen-oss/lz.n/compare/v3.0.0...v3.0.1) (2026-06-21)
 
 
