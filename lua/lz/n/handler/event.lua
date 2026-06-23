@@ -51,6 +51,18 @@ local function parse(spec)
     return ret
 end
 
+---@param events unknown
+---@return boolean
+local function is_resolved_event_list(events)
+    if not vim.islist(events) then
+        return false
+    end
+    ---@cast events unknown[]
+    return vim.iter(events):any(function(event)
+        return type(event) == "table" and event.id ~= nil
+    end)
+end
+
 ---@type lz.n.EventHandler
 ---@diagnostic disable-next-line: missing-fields
 local M = {
@@ -59,7 +71,7 @@ local M = {
     spec_field = "event",
     ---@param event_spec? lz.n.EventSpec
     parse = function(plugin, event_spec)
-        if event_spec and not vim.islist(plugin.event) then
+        if event_spec and not is_resolved_event_list(plugin.event) then
             plugin.event = {}
         end
         if type(event_spec) == "string" or type(event_spec) == "table" and (event_spec.event or event_spec.pattern) then

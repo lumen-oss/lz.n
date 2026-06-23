@@ -210,5 +210,18 @@ describe("lz.n", function()
             vim.api.nvim_exec_autocmds("InsertEnter", {})
             assert.spy(spy_load).called(1)
         end)
+        it("list of event strings", function()
+            local spy_load = spy.on(loader, "_load")
+            -- #222
+            lz.load({
+                {
+                    "foo.nvim",
+                    event = { "InsertEnter", "InsertLeave" },
+                },
+            })
+            assert.spy(spy_load).called(0)
+            vim.api.nvim_exec_autocmds("InsertEnter", {})
+            assert.spy(spy_load).called(1)
+        end)
     end)
 end)
