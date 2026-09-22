@@ -15,10 +15,6 @@
 
 local M = {}
 
-if vim.fn.has("nvim-0.10.0") ~= 1 then
-    error("lz.n requires Neovim >= 0.10.0")
-end
-
 --- The function provides two overloads, each suited for different use cases:
 ---
 ---@overload fun(plugin: lz.n.Plugin)
