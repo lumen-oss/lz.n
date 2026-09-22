@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.1](https://github.com/lumen-oss/lz.n/compare/v3.1.0...v3.1.1) (2026-09-22)
+
+
+### Bug Fixes
+
+* remove Neovim version check ([eebb6a9](https://github.com/lumen-oss/lz.n/commit/eebb6a9404c0b9f43a72111af94eea7d620313e7))
+
 ## [3.1.0](https://github.com/lumen-oss/lz.n/compare/v3.0.2...v3.1.0) (2026-08-11)
 
 
