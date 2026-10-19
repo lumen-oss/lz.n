@@ -54,6 +54,7 @@ function state.new()
                 .iter(pending)
                 ---@param plugins table<string, lz.n.Plugin>
                 :map(function(_, plugins)
+                    ---@diagnostic disable-next-line: missing-return-value
                     return plugins[plugin_name]
                 end)
                 ---@param plugin lz.n.Plugin?
