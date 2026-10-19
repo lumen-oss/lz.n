@@ -22,6 +22,7 @@ function M.lookup(name, opts)
     local handler_list = filter
             and vim.iter(filter)
                 :map(function(key)
+                    ---@diagnostic disable-next-line: missing-return-value
                     return handlers[key]
                 end)
                 :totable()
@@ -32,6 +33,7 @@ function M.lookup(name, opts)
         .iter(handler_list)
         ---@param handler lz.n.Handler
         :map(function(handler)
+            ---@diagnostic disable-next-line: missing-return-value
             return handler.lookup(name)
         end)
         ---@param result lz.n.Plugin?

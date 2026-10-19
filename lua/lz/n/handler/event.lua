@@ -51,16 +51,19 @@ local function parse(spec)
     return ret
 end
 
----@param events unknown
+---@param events? lz.n.Event[]
 ---@return boolean
 local function is_resolved_event_list(events)
     if not vim.islist(events) then
         return false
     end
-    ---@cast events unknown[]
-    return vim.iter(events):any(function(event)
-        return type(event) == "table" and event.id ~= nil
-    end)
+    ---@cast events lz.n.Event[]
+    return vim
+        .iter(events)
+        ---@param event lz.n.Event
+        :any(function(event)
+            return type(event) == "table" and event.id ~= nil
+        end)
 end
 
 ---@type lz.n.EventHandler
@@ -97,11 +100,15 @@ end
 ---@param event string
 ---@return string[]
 local function get_augroups(event)
-    return vim.iter(vim.api.nvim_get_autocmds({ event = event }))
+    return vim
+        .iter(vim.api.nvim_get_autocmds({ event = event }))
+        ---@param autocmd vim.api.keyset.get_autocmds.ret
         :filter(function(autocmd)
             return autocmd.group_name ~= nil
         end)
+        ---@param autocmd vim.api.keyset.get_autocmds.ret
         :map(function(autocmd)
+            ---@diagnostic disable-next-line: missing-return-value
             return autocmd.group_name
         end)
         :totable()
@@ -161,16 +168,19 @@ local function trigger(opts)
     end
     ---@type table<string,true>
     local done = {}
-    vim.iter(vim.api.nvim_get_autocmds({ event = opts.event })):each(function(autocmd)
-        local id = autocmd.event .. ":" .. (autocmd.group or "") ---@type string
-        local skip = done[id] or (opts.exclude and vim.tbl_contains(opts.exclude, autocmd.group_name))
-        done[id] = true
-        if autocmd.group and not skip then
-            ---@diagnostic disable-next-line: assign-type-mismatch
-            opts.group = autocmd.group_name
-            _trigger(opts)
-        end
-    end)
+    vim
+        .iter(vim.api.nvim_get_autocmds({ event = opts.event }))
+        ---@param autocmd vim.api.keyset.get_autocmds.ret
+        :each(function(autocmd)
+            local id = autocmd.event .. ":" .. (autocmd.group or "") ---@type string
+            local skip = done[id] or (opts.exclude and vim.tbl_contains(opts.exclude, autocmd.group_name))
+            done[id] = true
+            if autocmd.group and not skip then
+                ---@diagnostic disable-next-line: assign-type-mismatch
+                opts.group = autocmd.group_name
+                _trigger(opts)
+            end
+        end)
 end
 
 ---@param event lz.n.Event

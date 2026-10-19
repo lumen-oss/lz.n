@@ -36,8 +36,11 @@ local function parse(value)
     if not modes then
         return { parse_keys_spec(value) }
     end
-    return vim.iter(modes)
+    return vim
+        .iter(modes)
+        ---@param mode string
         :map(function(mode)
+            ---@diagnostic disable-next-line: missing-return-value
             return parse_keys_spec(value, mode)
         end)
         :totable()
