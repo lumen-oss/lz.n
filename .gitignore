@@ -3,3 +3,4 @@ result
 .direnv
 .luarc.json
 https___*
+/doc/tags
