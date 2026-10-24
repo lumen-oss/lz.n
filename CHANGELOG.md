@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/lumen-oss/lz.n/compare/v3.1.1...v3.2.0) (2026-10-24)
+
+
+### Features
+
+* auto-generated doc tags ([#246](https://github.com/lumen-oss/lz.n/issues/246)) ([7190754](https://github.com/lumen-oss/lz.n/commit/71907546f4ddba689a84e35ac8fb81769a0ced2a))
+
 ## [3.1.1](https://github.com/lumen-oss/lz.n/compare/v3.1.0...v3.1.1) (2026-09-22)
 
 
